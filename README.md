@@ -31,10 +31,10 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📸 Demo
 
-![screenshot_AIMOD1](image.png)
+![screenshot_AIMOD1](screenshot_AIMOD1.png)
 
 ## 🚀 Stretch Features
 
 - [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
 
-![screenshot_AIMOD1_C4](image.png)
+![screenshot_AIMOD1_C4](screenshot_AIMOD1_C4.png)
