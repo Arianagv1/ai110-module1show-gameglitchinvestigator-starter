@@ -1,6 +1,6 @@
 import random
 import streamlit as st
-from logic_utils import get_range_for_difficulty, parse_guess, check_guess, update_score
+from logic_utils import get_range_for_difficulty, parse_guess, check_guess, update_score, get_temperature_hint
 
 st.set_page_config(page_title="Glitchy Guesser", page_icon="🎮")
 
@@ -96,6 +96,9 @@ if submit:
 
         if show_hint:
             st.warning(message)
+            if outcome != "Win":
+                temp_hint = get_temperature_hint(guess_int, st.session_state.secret, low, high)
+                st.info(temp_hint)
 
         st.session_state.score = update_score(
             current_score=st.session_state.score,

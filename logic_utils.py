@@ -50,6 +50,33 @@ def check_guess(guess: int, secret: int):
         return "Too Low", "📈 Go HIGHER!"
 
 
+#Challenge 4: Enhanced the get_temperature_hint function to provide more granular feedback
+# based on how close the guess is to the secret number, using a ratio of the distance to the total range. 
+# This allows for a wider variety of hints (e.g., "Scorching", "Hot", "Warm", "Lukewarm", "Cool", "Freezing") that give players a better sense of 
+# their proximity to the correct answer, making the game more engaging and informative.
+def get_temperature_hint(guess: int, secret: int, low: int, high: int) -> str:
+    """
+    Return a hot/cold emoji hint based on how close the guess is to the secret.
+
+    Proximity is measured as a fraction of the total range.
+    """
+    distance = abs(guess - secret)
+    range_size = high - low or 1
+    ratio = distance / range_size
+
+    if ratio < 0.05:
+        return "🔥🔥🔥 Scorching! You're basically standing on it!"
+    if ratio < 0.15:
+        return "🔥🔥 Hot! Keep going!"
+    if ratio < 0.25:
+        return "🔥 Warm. Almost there."
+    if ratio < 0.40:
+        return "🌡️ Lukewarm… a bit further to go."
+    if ratio < 0.60:
+        return "🧊 Cool. Not freezing, but not lukewarm."
+    return "❄️❄️ Freezing! Way off!"
+
+
 def update_score(current_score: int, outcome: str, attempt_number: int):
     """Update score based on outcome and attempt number."""
     if outcome == "Win":
